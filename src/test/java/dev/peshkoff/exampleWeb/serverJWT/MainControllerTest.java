@@ -156,13 +156,7 @@ public class MainControllerTest {
         assertThat( newUsver.get_id()).isNotNull();
         assertThat( newUsver.getRoles().size()).isGreaterThan( 0);
     }
-/*
-Run
-git config --global user.email "peshkoff@yahoo.com"
-git config --global user.name "peshkoff123" to set your account's default identity.
-Omit --global to set the identity only in this repository.
- unable to auto-detect email address (got 'Peshkoff@Peshkoff-PC.(none)')
-*/
+
     // '/usver/{Id}'; DELETE;
     @Test void deleteUsver() throws Exception {
         getUsverList();

@@ -35,19 +35,21 @@ public class MongoDriver {
 
         UsverRepository usverRepo = new UsverRepository();
         usverRepo.setRoleRepo( roleRepo);
+
+        usverRepo.findByStrInName( "Peshkoff");
+/*
         Usver usver = usverRepo.findByName( "user");
         usver.addRole( roleRepo.findByName( "SUPER_USER"));
         usver.addRole( roleRepo.findByName( "BOSS"));
 
         usver.rolesArr();
 
-
         usver.removeRole( roleRepo.findByName( "ADMIN"));
         usver.removeRole( roleRepo.findByName( "BOSS"));
         usver.removeRole( roleRepo.findByName( "USER"));
         usverRepo.save( usver);
         usver = usverRepo.findByName( "user");
-
+*/
 /*        usverRepo.createUsverData();
         usverRepo.save( new Usver( 100, "newTestName1"));
         Usver usver = usverRepo.findById( "63df7acb0c926f1cf2f6dfae");

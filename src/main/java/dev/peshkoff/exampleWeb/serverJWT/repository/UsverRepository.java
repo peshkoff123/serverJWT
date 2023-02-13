@@ -1,17 +1,16 @@
 package dev.peshkoff.exampleWeb.serverJWT.repository;
 
-import com.mongodb.client.model.WriteModel;
+import com.mongodb.client.model.*;
 import dev.peshkoff.exampleWeb.serverJWT.model.Role;
 import dev.peshkoff.exampleWeb.serverJWT.model.Usver;
 import com.mongodb.bulk.BulkWriteResult;
 import com.mongodb.client.MongoCursor;
-import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.InsertOneModel;
+
 import static com.mongodb.client.model.Filters.*;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -46,6 +45,18 @@ public class UsverRepository {
                 res.add( getUsver( doc));
                 System.out.println( doc.toJson());
             }
+        }
+        return res;
+    }
+    public List<Usver> findByStrInName( String searchStr) {
+
+        userCollection.createIndex( Indexes.text("name"));
+
+        List<Document> listDoc = userCollection.find( Filters.text( searchStr)).into( new ArrayList<Document>());
+        ArrayList<Usver> res = new ArrayList<>();
+        for( Document doc : listDoc) {
+            System.out.println("findByStrInName(" + doc + "); = " + doc);
+            res.add( getUsver( doc));
         }
         return res;
     }

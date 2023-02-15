@@ -121,9 +121,4 @@ public SecurityFilterChain filterChain( HttpSecurity http) throws Exception {
 }
 
 }
-/* public interface UserDetails extends Serializable
-*
-* public interface Authentication extends Principal, Serializable {
-*
-* SecurityContextHolder.getContext().setAuthentication( Authentication);
- * */
+
